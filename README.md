@@ -7,10 +7,10 @@ Semester: Fall 2021-2022 <br>
 Database requirements in file "Requirements.pdf"
 
 ### Team members:
-- Amr Hammoud
 - Mohammad Farah
 - Mohammad AbdulKhalik
 - Mosaab Hasan
+- Amr Hammoud
 
 ### Project Duration:
   From 25/11/2021 <br>
