@@ -4,7 +4,7 @@ CSCI335 Project @LIU_Beqaa_Campus <br>
 Instructor: Dr. Garo Pilawijian <br>
 Semester: Fall 2021-2022 <br>
 <br>
-Database requirements in file "requirements.pdf"
+Database requirements in file "Requirements.pdf"
 
 ### Team members:
 - Amr Hammoud
