@@ -2,12 +2,12 @@ CREATE DATABASE Crime_Reporting_System;
 
 CREATE TABLE residents(
 	ssn				int,
-	firstName		varchar(15)			NOT NULL,
-	middleName		varchar(15)			NOT NULL,
-	lastName		varchar(15)			NOT NULL,
-	city			varchar(15)			NOT NULL,
-	street			varchar(15),
-	apartment		int,
+	firstName		varchar(20)			NOT NULL,
+	middleName		varchar(20)			NOT NULL,
+	lastName		varchar(20)			NOT NULL,
+	city			varchar(25)			NOT NULL,
+	street			varchar(25),
+	apartment		varchar(25),
 	birthdate		date,
 	contactNumber	int					NOT NULL,
 	gender			varchar(5),
@@ -16,23 +16,23 @@ CREATE TABLE residents(
 
 CREATE TABLE policeStation(
 	stationID		int,
-	city			varchar(15)			NOT NULL,
+	city			varchar(25)			NOT NULL,
 	PRIMARY KEY(stationID));
 	
 CREATE TABLE category(
-	code			int,
-	name			varchar(15)			NOT NULL,
+	code			varchar(10),
+	name			varchar(30)			NOT NULL,
 	PRIMARY KEY(code));
 	
 CREATE TABLE policeman(
 	ssn				int,
 	stationID		int					NOT NULL,
-	firstName		varchar(15)			NOT NULL,
-	middleName		varchar(15)			NOT NULL,
-	lastName		varchar(15)			NOT NULL,
-	city			varchar(15)			NOT NULL,
-	street			varchar(15),
-	apartment		int,
+	firstName		varchar(20)			NOT NULL,
+	middleName		varchar(20)			NOT NULL,
+	lastName		varchar(20)			NOT NULL,
+	city			varchar(25)			NOT NULL,
+	street			varchar(25),
+	apartment		varchar(25),
 	joiningDate		date,
 	salary			int,
 	contactNumber	int					NOT NULL,
@@ -43,13 +43,13 @@ CREATE TABLE crimeReport(
 	reportID		int,
 	pssn			int					NOT NULL,
 	rssn			int					NOT NULL,
-	city			varchar(15)			NOT NULL,
-	street			varchar(15),
-	apartment		int,
+	city			varchar(25)			NOT NULL,
+	street			varchar(25),
+	apartment		varchar(25),
 	images			varchar,
 	cdescription	varchar				NOT NULL,
-	cdate			date				NOT NULL,
-	ctime			time				NOT NULL,
+	cdate			date  				NOT NULL,
+	ctime			time 				NOT NULL,
 	cstatus			varchar(15)			NOT NULL,
 	PRIMARY KEY (reportID));
 
