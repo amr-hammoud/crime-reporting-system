@@ -8,10 +8,10 @@ Database requirements in file "Requirements.pdf"
 
 ### Team members:
 - Mohammad Farah
+- Amr Hammoud
 - Mohammad AbdulKhalik
 - Mosaab Hasan
-- Amr Hammoud
 
 ### Project Duration:
   From 25/11/2021 <br>
-  Till 3/1/2022
+  Till 7/1/2022
