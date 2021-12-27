@@ -1,7 +1,7 @@
 CREATE DATABASE Crime_Reporting_System;
 
 CREATE TABLE residents(
-	ssn				int,
+	ssn				varchar(10),
 	firstName		varchar(20)			NOT NULL,
 	middleName		varchar(20)			NOT NULL,
 	lastName		varchar(20)			NOT NULL,
@@ -10,12 +10,12 @@ CREATE TABLE residents(
 	apartment		varchar(25),
 	birthdate		date,
 	contactNumber	int					NOT NULL,
-	gender			varchar(5),
+	gender			char(1),
 	PRIMARY KEY(ssn));
 	
 
 CREATE TABLE policeStation(
-	stationID		int,
+	stationID		varchar(5),
 	city			varchar(25)			NOT NULL,
 	PRIMARY KEY(stationID));
 	
@@ -25,8 +25,8 @@ CREATE TABLE category(
 	PRIMARY KEY(code));
 	
 CREATE TABLE policeman(
-	ssn				int,
-	stationID		int					NOT NULL,
+	ssn				varchar(10),
+	stationID		varchar(5)					NOT NULL,
 	firstName		varchar(20)			NOT NULL,
 	middleName		varchar(20)			NOT NULL,
 	lastName		varchar(20)			NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE policeman(
 	
 	
 CREATE TABLE crimeReport(
-	reportID		int,
-	pssn			int					NOT NULL,
-	rssn			int					NOT NULL,
+	reportID		varchar(10),
+	pssn			varchar(10)					NOT NULL,
+	rssn			varchar(10)					NOT NULL,
 	city			varchar(25)			NOT NULL,
 	street			varchar(25),
 	apartment		varchar(25),
@@ -55,8 +55,8 @@ CREATE TABLE crimeReport(
 
 	
 CREATE TABLE responseAction(
-	responseID		int,
-	pssn			int,
+	responseID		varchar(10),
+	pssn			varchar(10),
 	name			varchar(15),
 	rtime			time				NOT NULL,
 	rdate			date				NOT NULL,
@@ -66,8 +66,8 @@ CREATE TABLE responseAction(
 	PRIMARY KEY (responseID));
 	
 CREATE TABLE crime(
-	reportID		int,
-	categoryCode	int,
+	reportID		varchar(10),
+	categoryCode	varchar(10),
 	deg_affection	int);
 
 
