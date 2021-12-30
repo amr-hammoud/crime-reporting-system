@@ -1,7 +1,7 @@
 CREATE DATABASE Crime_Reporting_System;
 
 CREATE TABLE residents(
-	ssn				varchar(10),
+	ssn				int,
 	firstName		varchar(20)			NOT NULL,
 	middleName		varchar(20)			NOT NULL,
 	lastName		varchar(20)			NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE residents(
 	
 
 CREATE TABLE policeStation(
-	stationID		varchar(5),
+	stationID		int,
 	city			varchar(25)			NOT NULL,
 	PRIMARY KEY(stationID));
 	
@@ -25,8 +25,8 @@ CREATE TABLE category(
 	PRIMARY KEY(code));
 	
 CREATE TABLE policeman(
-	ssn				varchar(10),
-	stationID		varchar(5)					NOT NULL,
+	ssn				int,
+	stationID		int					NOT NULL,
 	firstName		varchar(20)			NOT NULL,
 	middleName		varchar(20)			NOT NULL,
 	lastName		varchar(20)			NOT NULL,
@@ -38,11 +38,10 @@ CREATE TABLE policeman(
 	contactNumber	int					NOT NULL,
 	PRIMARY KEY (ssn));
 	
-	
 CREATE TABLE crimeReport(
-	reportID		varchar(10),
-	pssn			varchar(10)					NOT NULL,
-	rssn			varchar(10)					NOT NULL,
+	reportID		int,
+	pssn			int					NOT NULL,
+	rssn			int					NOT NULL,
 	city			varchar(25)			NOT NULL,
 	street			varchar(25),
 	apartment		varchar(25),
@@ -53,10 +52,9 @@ CREATE TABLE crimeReport(
 	cstatus			varchar(15)			NOT NULL,
 	PRIMARY KEY (reportID));
 
-	
 CREATE TABLE responseAction(
-	responseID		varchar(10),
-	pssn			varchar(10),
+	responseID		int,
+	pssn			int,
 	name			varchar(15),
 	rtime			time				NOT NULL,
 	rdate			date				NOT NULL,
@@ -66,19 +64,18 @@ CREATE TABLE responseAction(
 	PRIMARY KEY (responseID));
 	
 CREATE TABLE crime(
-	reportID		varchar(10),
+	reportID		int,
 	categoryCode	varchar(10),
 	deg_affection	int);
 
-
 --Foreign Keys
-ALTER TABLE policeman ADD FOREIGN KEY (stationID) REFERENCES policeStation(stationID)ON UPDATE CASCADE;
+ALTER TABLE policeman ADD FOREIGN KEY (stationID) REFERENCES policeStation(stationID) ON UPDATE CASCADE;
 
 ALTER TABLE crimeReport ADD FOREIGN KEY (pssn) REFERENCES policeman(ssn) ON UPDATE CASCADE;
 ALTER TABLE crimeReport ADD FOREIGN KEY (rssn) REFERENCES residents(ssn) ON UPDATE CASCADE;	
 	
 ALTER TABLE responseAction ADD FOREIGN KEY (pssn) REFERENCES policeman(ssn) ON UPDATE CASCADE;
-ALTER TABLE responseAction ADD FOREIGN KEY	(rtarget) REFERENCES crimeReport(reportID) ON UPDATE CASCADE;
+ALTER TABLE responseAction ADD FOREIGN KEY	(rtarget) REFERENCES crimeReport(reportID) ON DELETE SET DEFAULT ON UPDATE CASCADE;
 
 ALTER TABLE crime ADD FOREIGN KEY	(reportID) REFERENCES crimeReport(reportID) ON UPDATE CASCADE;
 ALTER TABLE crime ADD FOREIGN KEY (categoryCode) REFERENCES category(code) ON UPDATE CASCADE;
