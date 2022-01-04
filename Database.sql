@@ -1,7 +1,7 @@
 CREATE DATABASE Crime_Reporting_System;
 
 CREATE TABLE residents(
-	ssn				int,
+	ssn				char(10),
 	firstName		varchar(20)			NOT NULL,
 	middleName		varchar(20)			NOT NULL,
 	lastName		varchar(20)			NOT NULL,
@@ -15,19 +15,19 @@ CREATE TABLE residents(
 	
 
 CREATE TABLE policeStation(
-	stationID		int,
+	stationID		char(3),
 	city			varchar(25)			NOT NULL,
 	PRIMARY KEY(stationID));
 	
 CREATE TABLE category(
-	code			int,
+	code			char(3),
 	name			varchar(30)			NOT NULL,
 	PRIMARY KEY(code));
 	
 CREATE TABLE policeman(
-	ssn				int,
-	rssn			int,
-	stationID		int				NOT NULL,
+	ssn				char(9),
+	rssn			char(10),
+	stationID		char(3)				NOT NULL,
 	firstName		varchar(20)			NOT NULL,
 	middleName		varchar(20)			NOT NULL,
 	lastName		varchar(20)			NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE policeman(
 	PRIMARY KEY (ssn));
 	
 CREATE TABLE crimeReport(
-	reportID		int,
-	pssn			int					NOT NULL,
-	rssn			int					NOT NULL,
+	reportID		char(10),
+	pssn			char(9)				NOT NULL,
+	rssn			char(10)			NOT NULL,
 	city			varchar(25)			NOT NULL,
 	street			varchar(25),
 	apartment		int,
@@ -54,19 +54,19 @@ CREATE TABLE crimeReport(
 	PRIMARY KEY (reportID));
 
 CREATE TABLE responseAction(
-	responseID		int,
-	pssn			int					NOT NULL,
+	responseID		char(8),
+	pssn			char(9)				NOT NULL,
 	name			varchar(40),
 	time			time				NOT NULL,
 	date			date				NOT NULL,
 	description		varchar				NOT NULL,
-	target			int					NOT NULL,
+	target			char(10)			NOT NULL,
 	status			varchar,
 	PRIMARY KEY (responseID));
 	
 CREATE TABLE crime(
-	reportID		int					NOT NULL,
-	categoryCode	int					NOT NULL,
+	reportID		char(10)			NOT NULL,
+	categoryCode	char(3)				NOT NULL,
 	deg_affection	varchar);
 
 --Foreign Keys
