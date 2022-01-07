@@ -14,4 +14,4 @@ Database requirements in file "Requirements.pdf"
 
 ### Project Duration:
   From 25/11/2021 <br>
-  Till 7/1/2022
+  Till 9/1/2022
