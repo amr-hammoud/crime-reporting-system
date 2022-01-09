@@ -1,0 +1,20 @@
+,crime,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,reportID,categoryCode,degAffection,,,,,
+,7331902764,201,,,,201,Robbery,3
+,7331901387,201,,,,235,Drug trafficking,1
+,8622003671,201,,,,314,Holding unauthorized arms ,2
+,4711906530,235,,,,547,Murder,2
+,4711801270,314,,,,554,Kidnapping,1
+,8622007135,314,,,,603,Identity Theft,1
+,7331904857,547,1 woman murdered,,,605,Blackmailing,4
+,3121901271,547,2 men murdered,,,653,Ransomware,2
+,4712009512,554,,,,,,
+,3122009431,554,,,,,,
+,3122003718,603,,,,312,Beirut,
+,3121910137,605,,,,471,Zahle,
+,7331903719,605,,,,733,Tripoli,
+,8622001255,605,,,,862,Tyre,
+,4711903127,653,,,,,,
+,7332006125,653,,,,report ID,PSID-CY-xxxxx,

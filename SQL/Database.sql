@@ -65,8 +65,10 @@ CREATE TABLE responseAction(
 	PRIMARY KEY (responseID));
 	
 CREATE TABLE crime(
+	crimeID         char(11)            NOT NULL,
 	reportID		char(10)			NOT NULL,
 	categoryCode	char(3)				NOT NULL,
+	rssn			char(10)			NOT NULL,
 	degAffection	varchar(max));
 
 --Foreign Keys
@@ -81,3 +83,4 @@ ALTER TABLE responseAction ADD FOREIGN KEY (target) REFERENCES crimeReport(repor
 
 ALTER TABLE crime ADD FOREIGN KEY (reportID) REFERENCES crimeReport(reportID) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE crime ADD FOREIGN KEY (categoryCode) REFERENCES category(code) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE crime ADD FOREIGN KEY (rssn) REFERENCES residents(ssn);
