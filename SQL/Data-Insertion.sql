@@ -24,11 +24,14 @@ VALUES ('3111203764','Mohammad' ,'Youssef','Azzam','Beirut','Ain Al Mraiseh','7'
 ('8610012387','Sara','Hasan','Shamas','Tyre','Borj El Chamali','47','2006-11-16','81917541','F'),
 ('8610012865','Rami','Saed','Al Sayyed','Tyre','Borj El Chamali','94','1993-10-15','03715841','M');
 
+
 INSERT INTO policestation(stationID,city) 
 VALUES ('312','Beirut'),
 ('471','Zahle'),
 ('733','Tripoli'),
 ('862','Tyre');
+
+
 
 INSERT INTO category(code,name)
 VALUES ('235','Drug trafficking'),
@@ -36,7 +39,9 @@ VALUES ('235','Drug trafficking'),
 ('554','Kidnapping'),
 ('603','Identity Theft'),
 ('605','Blackmailing'),
+('201','Robbery'),
 ('653','Ransomware');
+
 
 INSERT INTO  policeman (ssn,rssn,stationID,firstName,middleName,lastName,city,street,apartment,joiningDate,salary,contactNumber)
 VALUES ('312196531','3111203764','312','Mohammad' ,'Youssef','Azzam','Beirut','Ain Al Mraiseh','7','2019-07-10','1600','81876037'),
@@ -52,19 +57,47 @@ VALUES ('312196531','3111203764','312','Mohammad' ,'Youssef','Azzam','Beirut','A
 ('862136349','8610012865','862','Rami','Saed','Al Sayyed','Tyre','Borj El Chamali','94','2013-01-06','1350','03715841'),
 ('862136824','3121247890','862','George','Toufik' ,'Boustany','Beirut','Hamra','14','2013-01-08','1600','03944834');
 
-INSERT INTO crimeReport (reportID,pssn,rssn,city,street,apartment,images,description,date,time,status)
+
+
+
+
+
+
+
+
+INSERT INTO crimeReport (reportID,pssn,rssn,city,street,apartment,description,date,time,status)
 VALUES
-('3121901271','312196531','4710011982','Beirut','Ain Al Mraiseh','56','/Images/3121901271','Resident 4710011982 (Mona Khalil) reported that she saw 2 corpses filled with blood near her friends house','2019-03-14','23:12','Investigation Closed'),
-('3122003718','312042345','3110017318','Beirut','Hamra','9','/Images/3122003718','Resident 3110017318 (Dima Al Hasan) received a message from the bank informing her that 9623$ were deducted from her account due to purchases done at amazon store.','2020-05-24','13:27','Case under Investigation'),
-('3122009431','312042345','3120965367','Beirut','Hamra','41','/Images/3122009431','Resident 3120965367 (Rana harb) reported that her daughter is missing since 2 days. ','2020-06-28','09:08','Investigation Closed'),
-('4711906530','471106432','4710112436','Zahle','Wadi Al Arayech','20','/Images/4711906530','28kg of Cocaine were caught at Al Masnaa border checkpoint','2019-10-17','23:14','Investigation Pending Outcome'),
-('4711906530','471106432','4710112436','Zahle','Wadi Al Arayech','20','/Images/4711906530','28kg of Cocaine were caught at Al Masnaa border checkpoint','2019-10-17','23:14','Investigation Pending Outcome'),
-('4711903127','471191532','4720105890','Zahle','Wadi Al Arayech','74','/Images/4711903127','LIU reported a ransomware attack on its database','2019-01-02','07:30','Investigation Closed'),
-('7331901387','733134562','7310812657','Tripoli','Mina','34','/Images/7331901387','Mariam Shaaban Reported that her wallet was stolen at the Mina by a 19-year old guy','2019-12-23','19:59','Case under Investigation'),
-('7331902764','733191987','7310481702','Tripoli','Mina','26','/Images/7331902764','An armed robbery at the house of citizen I.B. which led to his death when resisting the thieves.','2019-05-09','05:19','Investigation Pending Outcome'),
-('7331904857','733923456','7310481702','Tripoli','Bohssas','34','/Images/7331904857','Resident 7310481702 (Ahmad Othman) reported that resident 7310812657 (Mariam Shaaban) was murdered by one of her relatives.','2019-02-13','23:51','Investigation Closed'),
-('7332006125','733923456','8610012865','Tripoli','Bohssas','94','/Images/7332006125','Resident 8610012865 (Rami Al Sayyed) reported that all his files were locked and 1000$ are required by the hacker to unlock his files','2020-12-29','17:38','Case under Investigation'),
-('8622001255','862198126','8610130638','Tyre','Abbasiyye','23','/Images/8622001255','Resident 8610130638 (George Boustany) received an email threatening him by exposing his companys sensitive information if he does not pay 50000$ within 24h','2019-12-06','12:00','Investigation Pending Outcome');
+('3121901271','312196531','4710011982','Beirut','Ain Al Mraiseh','56','Resident 4710011982 (Mona Khalil) reported that she saw 2 corpses filled with blood near her friends house','2019-03-14','23:12','Investigation Closed'),
+('3122003718','312042345','3110017318','Beirut','Hamra','9','Resident 3110017318 (Dima Al Hasan) received a message from the bank informing her that 9623$ were deducted from her account due to purchases done at amazon store.','2020-05-24','13:27','Case under Investigation'),
+('3122009431','312042345','3120965367','Beirut','Hamra','41','Resident 3120965367 (Rana harb) reported that her daughter is missing since 2 days. ','2020-06-28','09:08','Investigation Closed'),
+('4711906530','471106432','4710112436','Zahle','Wadi Al Arayech','20','28kg of Cocaine were caught at Al Masnaa border checkpoint','2019-10-17','23:14','Investigation Pending Outcome'),
+('4711903127','471191532','4720105890','Zahle','Wadi Al Arayech','74','LIU reported a ransomware attack on its database','2019-01-02','07:30','Investigation Closed'),
+('7331901387','733134562','7310812657','Tripoli','Mina','34','Mariam Shaaban Reported that her wallet was stolen at the Mina by a 19-year old guy','2019-12-23','19:59','Case under Investigation'),
+('7331902764','733191987','7310481702','Tripoli','Mina','26','An armed robbery at the house of citizen I.B. which led to his death when resisting the thieves.','2019-05-09','05:19','Investigation Pending Outcome'),
+('7331904857','733923456','7310481702','Tripoli','Bohssas','34','Resident 7310481702 (Ahmad Othman) reported that resident 7310812657 (Mariam Shaaban) was murdered by one of her relatives.','2019-02-13','23:51','Investigation Closed'),
+('7332006125','733923456','8610012865','Tripoli','Bohssas','94','Resident 8610012865 (Rami Al Sayyed) reported that all his files were locked and 1000$ are required by the hacker to unlock his files','2020-12-29','17:38','Case under Investigation'),
+('8622001255','862198126','8610130638','Tyre','Abbasiyye','23','Resident 8610130638 (George Boustany) received an email threatening him by exposing his companys sensitive information if he does not pay 50000$ within 24h','2019-12-06','12:00','Investigation Pending Outcome');
+
+
+
+
+
+INSERT INTO crimeImages ( imageID, reportID , imgDirectory ) 
+VALUES ('31219012711','3121901271','/Images/3121901271/1.jpg'),
+('31219012712','3121901271','/Images/3121901271/2.jpg'),
+('31219012713','3121901271','/Images/3121901271/3.jpg'),
+('31219012714','3121901271','/Images/3121901271/4.jpg'),
+('31219012715','3121901271','/Images/3121901271/5.jpg'),
+('31220037181','3122003718','/Images/3122003718/1.jpg'),
+('31220037182','3122003718','/Images/3122003718/2.jpg'),
+('31220037183','3122003718','/Images/3122003718/3.jpg'),
+('31220037184','3122003718','/Images/3122003718/4.jpg'),
+('31220094311','3122009431','/Images/3122009431/1.jpg'),
+('31220094312','3122009431','/Images/3122009431/2.jpg'),
+('31220094313','3122009431','/Images/3122009431/3.jpg');
+
+
+
 
 INSERT INTO responseAction(responseID,pssn,name,time,date,description,target,status)
 VALUES 
@@ -79,17 +112,26 @@ VALUES
 ('73304825','733923456','Hasan Hawa','18:39','2021-09-19','Hacker Group is being tracked','7332006125','Case under Investigation'),
 ('86217544','862198126','Ali Habash','14:19','2020-12-03','3 suspects found, gathering more intel to identify the criminal','8622001255','Investigation Pending Outcome');
 
-INSERT INTO crime(reportID,categoryCode,degAffection)
-VALUES
-('7331902764','201','2 corpses'),
-('7331901387','201','Dima Al Hasan visacard is being used by someone else'),
-('4711906530','235','Psychological problems for the victim'),
-('3121901271','547','Some students data was lost'),
-('3122009431','554','Passport, ID, and money robbed'),
-('3122003718','603','Broken windows, 1 corpse, 58679$ robbed'),
-('8622001255','605','1 corpse'),
-('4711903127','653','All files lost'),
-('7332006125','653','companys data was exposed');
+
+
+
+
+INSERT INTO crime( crimeID , reportID, categoryCode, rssn , degAffection)
+VALUES ('73320112345','7331902764','201','7310812657','2 corpses'),
+('73320109876','7331901387','201','7310812657','Dima Al Hasan visacard is being used by someone else'),
+('47123545678','4711906530','235','4710112436','Psychological problems for the victim'),
+('73354734987','7331904857','547','7310481702','2 policemen were injured'),
+('31254724983','3121901271','547','7310481702','Some students data was lost'),
+('31255423490','3122009431','554','4710011982','Passport, ID, and money robbed'),
+('31260390347','3122003718','603','3120965367','Broken windows, 1 corpse, 58679$ robbed'),
+('86260598326','8622001255','605','8610130638','1 corpse'),
+('47165323802','4711903127','653','4720105890','All files lost'),
+('73365390483','7332006125','653','8610012865','companys data was exposed');
+
+
+/**/
+
+
 
 
 

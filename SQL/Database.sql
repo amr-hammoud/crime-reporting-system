@@ -46,12 +46,17 @@ CREATE TABLE crimeReport(
 	city			varchar(25)			NOT NULL,
 	street			varchar(25),
 	apartment		int,
-	images			varchar(max),
 	description		varchar(max)		NOT NULL,
 	date			date  				NOT NULL,
 	time			time 				NOT NULL,
 	status			varchar(max)		NOT NULL,
 	PRIMARY KEY (reportID));
+
+CREATE TABLE crimeImages(
+	imageID			char(12),
+	reportID		char(10)	 NOT NULL,
+	imgDirectory	varchar(max) NOT NULL,
+	PRIMARY KEY (imageID));
 
 CREATE TABLE responseAction(
 	responseID		char(8),
@@ -77,6 +82,8 @@ ALTER TABLE policeman ADD FOREIGN KEY (stationID) REFERENCES policeStation(stati
 ALTER TABLE crimeReport ADD FOREIGN KEY (pssn) REFERENCES policeman(ssn) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE crimeReport ADD FOREIGN KEY (rssn) REFERENCES residents(ssn) ON DELETE CASCADE ON UPDATE CASCADE;	
 	
+ALTER TABLE crimeImages ADD FOREIGN KEY (reportID) REFERENCES crimeReport(reportID) ON DELETE CASCADE ON UPDATE CASCADE;
+
 ALTER TABLE responseAction ADD FOREIGN KEY (pssn) REFERENCES policeman(ssn) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE responseAction ADD FOREIGN KEY (target) REFERENCES crimeReport(reportID);
 
