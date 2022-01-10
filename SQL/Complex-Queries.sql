@@ -2,7 +2,7 @@
 SELECT 	ssn,firstName, middleName, lastName
 FROM 	residents
 WHERE 	NOT EXISTS
-	(SELECT * FROM crimeReport WHERE SSN=RSSN)
+	(SELECT * FROM crimeReport WHERE SSN=RSSN);
 
 
 --Complex Query 2 / Names of residents who are policemen
@@ -30,14 +30,14 @@ RIGHT JOIN crimeReport
 ON policeman.ssn=crimeReport.pssn;
 
 
---Complex Query 5 / 
+--Complex Query 5 / ID, city and description of crimes reported on 2019-05 and 2020-05
 SELECT reportID,city,description
 FROM crimeReport
 WHERE date LIKE '2019-05-%'
 UNION
 SELECT reportID,city,description
 FROM crimeReport
-WHERE date LIKE '2020-05-%'
+WHERE date LIKE '2020-05-%';
 
 
 
