@@ -23,9 +23,9 @@ ORDER BY firstName,middleName ASC;
 
 
 --Step 5.5) List the ID and status of the crimes reported to the Policeman named “William Saliba”
-SELECT DISTINCT reportID,status
-FROM crimeReport,policeman
-WHERE crimeReport.pssn=policeman.ssn AND policeman.firstName='William' AND policeman.lastName='Saliba';
+SELECT DISTINCT crimeID,status
+FROM crime,crimeReport,policeman
+WHERE crime.reportID=crimeReport.reportID AND crimeReport.pssn=policeman.ssn AND policeman.firstName='William' AND policeman.lastName='Saliba';
 
 
 --Step 5.6) List the number of pending crimes
@@ -34,25 +34,28 @@ FROM crimeReport
 WHERE status ='Case under Investigation' OR status ='Investigation Pending Outcome';
 
 
+
 --Step 5.7) The ID of crimes that were reported to “Ghada Asaad” or had an action done by “Ghada Asaad”
-SELECT reportID
-FROM crimeReport,policeman,responseAction
-WHERE crimeReport.pssn=policeman.ssn
+SELECT crimeID
+FROM crime,crimeReport,policeman,responseAction
+WHERE crime.reportID=crimeReport.reportID
+AND crimeReport.pssn=policeman.ssn
 AND crimeReport.pssn=responseAction.pssn
 AND policeman.firstName='Ghada'
 AND policeman.lastName='Asaad';
 
 
 --Step 5.8) The total number of crimes in each city
-SELECT city,COUNT(reportID)
-FROM crimeReport
+SELECT city,COUNT(crimeID)
+FROM crimeReport,crime
+WHERE crime.reportID=crimeReport.reportID
 GROUP BY city;
 
 
 --Step 5.9) The name of residents who have reported more than two crimes
 SELECT firstName,lastName,COUNT(*) 
-FROM residents,crimeReport
-WHERE residents.ssn=crimeReport.rssn	
+FROM residents,crimeReport,crime
+WHERE residents.ssn=crimeReport.rssn AND crime.reportID=crimeReport.reportID	
 GROUP BY firstName,lastName
 HAVING COUNT(*)>2;
 
@@ -61,7 +64,7 @@ HAVING COUNT(*)>2;
 SELECT COUNT(*)
 FROM responseAction
 GROUP BY date
-HAVING date='2021-01-06';
+HAVING date='2021-09-19';
 
 
 --Step 5.11) The number of crimes in each category
@@ -72,5 +75,5 @@ GROUP BY categoryCode,name;
 
 
 --Step 5.12) The ID of crimes
-SELECT reportID
-From crimeReport;
+SELECT crimeID
+From crime;
